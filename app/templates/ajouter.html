@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+    <div class="well span9">
+        <form id="form-inline" action="" method="post" name="register_module">
+            {{form.hidden_tag()}}
+            <fieldset>
+                {% for field in form if field.widget.input_type != 'hidden' %}
+                    <label>{{ field.label }} {% if field.flags.required %}*{% endif %}</label>
+                    {{ field }}
+                    <br>
+                {% endfor %}
+                <input type="submit" value="Ajouter">
+            </fieldset>
+        </form>
+    </div>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+    {% for message in messages %}
+        <li>{{ message }} </li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+{% endblock %}

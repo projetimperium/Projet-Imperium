@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block bodyend %}
+
+<script>
+
+$(function(){
+
+    $('button[id^=deleteEntry]').click(function() {
+        $.post(window.location.pathname,
+            {
+                cmd:'deleteNotification',
+                nId:$(this).val()
+            }
+        ).done(function(data) {
+            location.reload();
+         });
+    });
+
+    $('#addEntry').click(function() {
+        var nType = $("#notificationType").val();
+        var nName = $("#notificationName").val();
+        var nEntry = $("#notificationEntry").val();
+        $.post(window.location.pathname,
+            {
+                'cmd':'addNotification',
+                'nName':nName,
+                'nType':nType,
+                'nEntry':nEntry
+            }
+        ).done(function(data) {
+            location.reload();
+         });
+    });
+
+});
+
+</script>
+
+{% endblock %}
+
+{% block page_content %}
+
+<div class="panel panel-default">
+    <div class="panel-heading"><h3>Notifications</h3></div>
+    <table id="notificationEntries" allign="center" class="table">
+
+        <tr>
+            <td><b>#</b></td>
+            <td><b>Type</b></td>
+            <td><b>Nom</b></td>
+            <td><b>Entrée</b></td>
+        </tr>
+        {% for e in notificationEntries %}
+        <tr>
+            <td>{{e.nId}}</td>
+            <td>{{e.nType}}</td>
+            <td>{{e.name}}</td>
+            <td>{{e.entry}}</td>
+            <td>
+                <button id="deleteEntry-{{e.nId}}" value="{{e.nId}}" type="button" class="btn btn-xs btn-danger">Supprimer</button>
+            </td>
+        </tr>
+        {% endfor %}
+
+    <tr>
+        <td>{{notificationEntries[-1].nId + 1}}</td>
+        <td>
+            <select id="notificationType">
+                <option value="email" selected="selected">Email</option>
+            </select>
+        </td>
+        <td><input type="text" id="notificationName"></td>
+        <td><input type="text" id="notificationEntry"></td>
+        <td>
+            <button id="addEntry" type="button" class="btn btn-xs btn-success">Ajouter</button>
+        </td>
+    </tr>
+    </table>
+</div>
+{% endblock %}

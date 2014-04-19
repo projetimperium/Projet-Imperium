@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block bodyend %}
+    <script>
+        function onDateSelected(showAll) {
+            var date = $("#showDate").val();
+            if(showAll) {
+                date = "all";
+            }
+            window.location.href = window.location.href.replace( /[\?#].*|$/, "?showDate=" + date );
+        };
+    </script>
+{% endblock %}
+
+{% block page_content %}
+    <input type="date" id="showDate" name="showDate" onChange="onDateSelected(false);" value="{{showDate}}">
+    <button onclick="onDateSelected(true);">Montrer Tout</button>
+    <hr>
+    {% for entry in logFileContent %}
+        {{entry}}<br>
+    {% endfor %}
+{% endblock %}

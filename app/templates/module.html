@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+    <h1 onclick="$('#details').toggle('slow');">{{ module['name'] }}</h1>
+    <hr>
+    <div id="details" style="display: none;">
+        Id: {{ module['mId'] }}<br>
+        Slug-name: {{ module['slugName'] }}<br>
+        <form name="form_deleteModule" method="get">
+            <input type='hidden' name='delModule' value='{{ module['slugName'] }}' />
+            <input type="submit" class=​"btn btn-sm btn-danger" id="delMod" name="delMod" value="Supprimer ce module">
+        </form>
+        <hr>
+    </div>
+    {% if module['description'] %}
+        {{ module['description'] }}
+    {% endif %}
+
+    <br>
+    <hr>
+    <div class="well span9">
+        <form id="form-inline" action="" method="post" name="cmd">
+            {{form.hidden_tag()}}
+            <fieldset>
+                <label>Command: </label>
+                {{form.command(size=40)}}
+                <input type="submit" value="Envoyé">
+            </fieldset>
+        </form>
+    </div>
+
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+    {% for message in messages %}
+        <li>{{ message }} </li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+{% endblock %}

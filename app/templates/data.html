@@ -1,0 +1,234 @@
+{% extends "base.html" %}
+
+{% block bodyend %}
+<style>
+.graph-container {
+    box-sizing: border-box;
+    width: 850px;
+    height: 450px;
+    padding: 20px 15px 15px 15px;
+    margin: 15px auto 30px auto;
+    border: 1px solid #ddd;
+    background: #fff;
+    background: linear-gradient(#f6f6f6 0, #fff 50px);
+    background: -o-linear-gradient(#f6f6f6 0, #fff 50px);
+    background: -ms-linear-gradient(#f6f6f6 0, #fff 50px);
+    background: -moz-linear-gradient(#f6f6f6 0, #fff 50px);
+    background: -webkit-linear-gradient(#f6f6f6 0, #fff 50px);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+    -o-box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    -ms-box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    -webkit-box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.graph-placeholder {
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    line-height: 1.2em;
+}
+
+.legend table {
+    border-spacing: 5px;
+}
+</style>
+
+<script>
+$(function() {
+
+
+
+        window.datasets = {{dataSet|safe}};
+
+
+        $("#intervalSelection :input").attr("disabled", true);
+
+        var i = 0;
+        $.each(window.datasets, function(key, val) {
+            val.color = i;
+            ++i;
+        });
+
+        // insert checkboxes
+        var choiceContainer = $("#choices");
+        $.each(window.datasets, function(key, val) {
+            choiceContainer.append("<br/><input type='checkbox' name='" + key +
+                "' checked='checked' id='id" + key + "'></input>" +
+                "<label for='id" + key + "'>"
+                + val.label + "</label>");
+        });
+
+        choiceContainer.find("input").click(plotAccordingToChoices);
+        $('#updateButton').click(plotAccordingToChoices);
+        $('#enableInterval').click(function() {
+            plotAccordingToChoices();
+
+            if($(this).is(':checked')) {
+                $("#intervalSelection :input").attr("disabled", false);
+            }else{
+                $("#intervalSelection :input").attr("disabled", true);
+            }
+
+        });
+        $("#reloadButton").click(function() {
+            $.getJSON( "/data/getData", function( data ) {
+                window.datasets = data;
+                plotAccordingToChoices();
+            });
+        });
+
+        function plotAccordingToChoices() {
+
+            var data = [];
+
+            choiceContainer.find("input:checked").each(function () {
+                var key = $(this).attr("name");
+                if (key && window.datasets[key]) {
+                    data.push(window.datasets[key]);
+                }
+            });
+
+
+            var options = {
+                series: { lines: { show: true }, points: { show: true } },
+                grid: { hoverable: true, clickable: false },
+                yaxis: {
+
+                },
+                xaxis: {
+                    mode: "time",
+                    timeformat: "%y-%m-%e %H:%M:%S" //2014-03-25 14:44:09
+                }
+            }
+
+            var enableInterval = $('#enableInterval').is(':checked');
+
+            if(enableInterval){
+
+                var fromDate = moment($('#fromDate').val()).zone('-0300').format('X') * 1000;
+                var toDate = moment($('#toDate').val()).zone('-0300').format('X') * 1000;
+                var xIncrement = $('#xIncrement').val();
+                var xIncrement_sel = $('#xIncrement_select').val();
+                var yMin = $('#yMin').val();
+                var yMax = $('#yMax').val();
+                var yIncrement = $('#yIncrement').val();
+
+                options['yaxis'] = {
+                    min: yMin,
+                    max: yMax,
+                    minTickSize: yIncrement
+                };
+                options['xaxis'] = {
+                    mode: "time",
+                    timeformat: "%y-%m-%e %H:%M:%S",
+                    min: fromDate,
+                    max: toDate,
+                    minTickSize: [xIncrement, xIncrement_sel],
+
+                };
+            }
+
+            $.plot("#placeholder", data, options);
+
+        }
+
+        plotAccordingToChoices();
+
+
+        function showTooltip(x, y, contents) {
+            $('<div id="tooltip">' + contents + '</div>').css( {
+                position: 'absolute',
+                display: 'none',
+                top: y + 5,
+                left: x + 5,
+                border: '1px solid #fdd',
+                padding: '2px',
+                'background-color': '#fee',
+                opacity: 0.80
+            }).appendTo("body").fadeIn(200);
+        }
+
+        var previousPoint = null;
+        $("#placeholder").bind("plothover", function (event, pos, item) {
+            if (item) {
+                if (previousPoint != item.dataIndex) {
+                    previousPoint = item.dataIndex;
+
+                    $("#tooltip").remove();
+                    var x = item.datapoint[0].toFixed(2),
+                    y = item.datapoint[1].toFixed(2);
+                    //var localTime = moment.utc(parseInt(x)).local().format('YY/MM/DD HH:mm:ss');
+                    showTooltip(item.pageX, item.pageY, y);
+                }
+            }
+            else {
+                $("#tooltip").remove();
+                previousPoint = null;
+            }
+
+        });
+    });
+
+    </script>
+{% endblock %}
+
+{% block page_content %}
+
+
+    <div class="graph-container">
+        <div id="placeholder" class="graph-placeholder" style="float:left; width:675px;"></div>
+        <p id="choices" style="float:right; width:135px;"></p>
+    </div>
+    <button id="reloadButton">Rafraîchir</button>
+    <hr>
+    <label for="enableInterval"><h3 style="padding-right:5px;">Intervalles</h3></label>
+    <input style="" type="checkbox" id="enableInterval" name="enableInterval">
+    <div id="intervalSelection">
+    <table id="interval" align="center" width="100%">
+        <tr>
+            <td>
+                <h4>Axe X</h4>
+            </td>
+            <td>
+                Min
+                <input type="datetime-local" id="fromDate" name="fromDate" value="{{fromDate}}">
+            </td>
+            <td>
+                Max
+                <input type="datetime-local" id="toDate" name="toDate" value="{{toDate}}">
+            </td>
+            <td>
+                Increment
+                <input type="number" id="xIncrement" name="xIncrement" value="{{xIncrement}}">
+                <select id="xIncrement_select">
+                    <option value="minute">Minute</option>
+                    <option value="hour">Heure</option>
+                    <option value="day" selected="selected">Jour</option>
+                    <option value="month">Mois</option>
+                    <option value="year">Année</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h4>Axe Y</h4>
+            </td>
+            <td>
+                Min
+                <input type="number" id="yMin" name="yMin" value="{{yMin}}">
+            </td>
+            <td>
+                Max
+                <input type="number" id="yMax" name="yMax" value="{{yMax}}">
+            </td>
+            <td>
+                Increment
+                <input type="number" id="yIncrement" name="yIncrement" value="{{yIncrement}}">
+            </td>
+        </tr>
+    </table>
+    <button id="updateButton">Update</button>
+    </div>
+
+{% endblock %}
