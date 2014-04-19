@@ -1,0 +1,10 @@
+.. _serialmonitor_class_doc:
+
+Documentation | SerialMonitor
+=============================
+
+.. automodule:: imperium
+
+.. autoclass:: SerialMonitor
+    :members:
+    :member-order: bysource

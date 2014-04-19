@@ -1,0 +1,10 @@
+.. _datahandler_class_doc:
+
+Documentation | DataHandler
+===========================
+
+.. automodule:: imperium
+
+.. autoclass:: DataHandler
+    :members:
+    :member-order: bysource

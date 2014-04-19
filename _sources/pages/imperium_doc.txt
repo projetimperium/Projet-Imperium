@@ -1,0 +1,10 @@
+.. _imperium_class_doc:
+
+Documentation | Imperium
+========================
+
+.. automodule:: imperium
+
+.. autoclass:: Imperium
+    :members:
+    :member-order: bysource

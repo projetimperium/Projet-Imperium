@@ -1,0 +1,7 @@
+.. _views_functions_doc:
+
+Documentation | Views
+=====================
+
+.. automodule:: views
+    :members:

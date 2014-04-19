@@ -1,0 +1,10 @@
+.. _notify_class_doc:
+
+Documentation | Notify
+======================
+
+.. automodule:: imperium
+
+.. autoclass:: Notify
+    :members:
+    :member-order: bysource

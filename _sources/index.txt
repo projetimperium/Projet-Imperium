@@ -1,0 +1,25 @@
+.. _main_page:
+
+Projet Impérium
+===============
+
+.. include:: ../../../README.rst
+	:start-after: begin_description
+	:end-before: end_description
+
+.. include:: ../../../README.rst
+	:start-after: begin_installation
+	:end-before: end_installation
+
+Documentation du code source
+----------------------------
+
+.. toctree::
+   :maxdepth: 1
+
+   pages/imperium_doc
+   pages/module_doc
+   pages/serialmonitor_doc
+   pages/notify_doc
+   pages/datahandler_doc
+

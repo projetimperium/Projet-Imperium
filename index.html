@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <title>Projet Impérium &mdash; Projet Impérium 0.1 documentation</title>
+
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Projet Impérium 0.1 documentation" href="#" />
+    <link rel="next" title="Documentation | Imperium" href="pages/imperium_doc.html" />
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pages/imperium_doc.html" title="Documentation | Imperium"
+             accesskey="N">next</a> |</li>
+        <li><a href="#">Projet Impérium 0.1 documentation</a> &raquo;</li>
+      </ul>
+    </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+
+  <div class="section" id="projet-imperium">
+<span id="main-page"></span><h1>Projet Impérium<a class="headerlink" href="#projet-imperium" title="Permalink to this headline">¶</a></h1>
+<p>Le projet est composé d’une unité principale de contrôle qui communique avec différents sous module. Son objectif est d’effectuer le traitement de l’information et la collection de l’information provenant des sous-modules. Ce module principal peut se connecter à l’internet pour réaliser le contrôle par téléphone intelligent ou d’autres appareils. Avec cet élément, il est possible d’ajouter d’autres sous module si jamais on décide d’agrandir l’échelle du projet.</p>
+<p>Le premier sous-module comprend un système intelligent pour déverrouiller la serrure d’une porte. Aujourd’hui, avec cet âge informatique et technologique, la majorité des gens ont des téléphones intelligents et les apportent tout au long de la journée. Leur cellulaire devient leurs identités et pourrait aussi être leurs clés et plusieurs de ces outils ont maintenant la technologie NFC intégrée. En exploitant ces facteurs, on peut créer une serrure intelligente qui pourrait être déverrouillée à distance. Cela permet aux clients de faciliter la tâche lorsqu’ils veulent entrer chez eux. En somme, le module est capable de déverrouiller une porte à distance à l’aide d’un appareil, déverrouiller une porte à l’aide de la technologie RFID ou d’une clé en cas d’urgence.</p>
+<p>Le deuxième sous-module comprend un système de mesure. Il sera capable de mesurer la puissance de chaque circuit individuel provenant du panneau électrique d’une maison. Il enverra les données à notre unité principale pour effectuer le traitement des données, tel que l’analyse des coûts et de la consommation. De plus, l’unité principale sauvegardera les données pour qu’ils soient accessibles à n’importe quel moment. La demande d’énergie continue d’augmenter et donc ce sous-module devient un projet très important à réaliser pour la gestion d’énergie consommée.</p>
+<div class="section" id="installation">
+<span id="id1"></span><h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>Les fichiers du projet devrons être copier sur un Raspberry-pi.
+Ce projet dépend sur les librairies suivantes:</p>
+<p>Serveur Web:</p>
+<blockquote>
+<div><p><a class="reference external" href="http://flask.pocoo.org/docs/">- flask</a></p>
+<p><a class="reference external" href="http://flask.pocoo.org/docs/patterns/sqlalchemy/">- flask.ext.sqlalchemy</a></p>
+<p><a class="reference external" href="https://flask-wtf.readthedocs.org/en/latest/">- flask.ext.wtf</a></p>
+<p><a class="reference external" href="https://pypi.python.org/pypi/awesome-slugify/1.2.4">- awesome-slugify</a></p>
+</div></blockquote>
+<p>Communication Serie:</p>
+<blockquote>
+<div><a class="reference external" href="https://pypi.python.org/pypi/pyserial">- pyserial</a></div></blockquote>
+<p>Acquisition de la température de ville:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://pypi.python.org/pypi/xmltodict">- xmltodict</a></p>
+<p><a class="reference external" href="http://docs.python-requests.org/en/latest/">- requests</a></p>
+</div></blockquote>
+<p>Voici des guides que nous avions suivi pour activer le port série du
+RaspberryPi:</p>
+<blockquote>
+<div><p><a class="reference external" href="http://www.hobbytronics.co.uk/raspberry-pi-serial-port">- Enable Serial</a></p>
+<p><a class="reference external" href="http://www.elinux.org/Serial_port_programming">- Python Serial</a></p>
+</div></blockquote>
+<p>Enfin pour exécuter l&#8217;application web,</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>python run.py
+</pre></div>
+</div>
+</div>
+<div class="section" id="documentation-du-code-source">
+<h2>Documentation du code source<a class="headerlink" href="#documentation-du-code-source" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pages/imperium_doc.html">Documentation | Imperium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages/module_doc.html">Documentation | Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages/serialmonitor_doc.html">Documentation | SerialMonitor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages/notify_doc.html">Documentation | Notify</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages/datahandler_doc.html">Documentation | DataHandler</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Projet Impérium</a><ul>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#documentation-du-code-source">Documentation du code source</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pages/imperium_doc.html"
+                        title="next chapter">Documentation | Imperium</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/index.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pages/imperium_doc.html" title="Documentation | Imperium"
+             >next</a> |</li>
+        <li><a href="#">Projet Impérium 0.1 documentation</a> &raquo;</li>
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Projet Impérium.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.1.
+    </div>
+  </body>
+</html>

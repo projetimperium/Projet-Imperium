@@ -1,0 +1,233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Documentation | Imperium &mdash; Projet Impérium 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Projet Impérium 0.1 documentation" href="../index.html" />
+    <link rel="next" title="Documentation | Module" href="module_doc.html" />
+    <link rel="prev" title="Projet Impérium" href="../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="module_doc.html" title="Documentation | Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../index.html" title="Projet Impérium"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Projet Impérium 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-imperium">
+<span id="documentation-imperium"></span><span id="imperium-class-doc"></span><h1>Documentation | Imperium<a class="headerlink" href="#module-imperium" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="imperium.Imperium">
+<em class="property">class </em><tt class="descclassname">imperium.</tt><tt class="descname">Imperium</tt><a class="headerlink" href="#imperium.Imperium" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Class Imperium:</dt>
+<dd><ul class="first last simple">
+<li>Responsable pour la gestion des sous-modules</li>
+<li>Contient une référence au SerialMonitor</li>
+<li>L&#8217;ajout d&#8217;entrée au server log</li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="imperium.Imperium.getUptimeStr">
+<tt class="descname">getUptimeStr</tt><big>(</big><big>)</big><a class="headerlink" href="#imperium.Imperium.getUptimeStr" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">String - Durée de fonctionnent du serveur</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="imperium.Imperium.getModuleFromSlugName">
+<tt class="descname">getModuleFromSlugName</tt><big>(</big><em>slugName</em><big>)</big><a class="headerlink" href="#imperium.Imperium.getModuleFromSlugName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obtenir l&#8217;instance d&#8217;un module a partir de son nom court</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>slugName</strong> (<em>str</em>) &#8211; Nom court</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Instance du module rechercher, else False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="imperium.Imperium.removeModule">
+<tt class="descname">removeModule</tt><big>(</big><em>module</em><big>)</big><a class="headerlink" href="#imperium.Imperium.removeModule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Supprimer un module de la base de données</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>module</strong> (<em>Module</em>) &#8211; Instance d&#8217;un module</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="imperium.Imperium.loadModules">
+<tt class="descname">loadModules</tt><big>(</big><big>)</big><a class="headerlink" href="#imperium.Imperium.loadModules" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ajout des modules de la base de données</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="imperium.Imperium.log">
+<tt class="descname">log</tt><big>(</big><em>msg</em><big>)</big><a class="headerlink" href="#imperium.Imperium.log" title="Permalink to this definition">¶</a></dt>
+<dd><p>L&#8217;ajout d&#8217;entrée au server log (config: LOG_FILE)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>msg</strong> (<em>str</em>) &#8211; Message a enregistré</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="imperium.Imperium.addNotificationEntry">
+<tt class="descname">addNotificationEntry</tt><big>(</big><em>nType</em>, <em>name</em>, <em>entry</em><big>)</big><a class="headerlink" href="#imperium.Imperium.addNotificationEntry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ajoute un email a la base des données pour la notification</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nType</strong> (<em>str</em>) &#8211; Le type de notification</li>
+<li><strong>name</strong> (<em>str</em>) &#8211; Le nom de la personne qui receveras le message</li>
+<li><strong>entry</strong> (<em>str</em>) &#8211; L&#8217;entrée correspondant</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="imperium.Imperium.removeNotificationEntry">
+<tt class="descname">removeNotificationEntry</tt><big>(</big><em>nId</em><big>)</big><a class="headerlink" href="#imperium.Imperium.removeNotificationEntry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Supprimer une entrée de notification
+:param nId: Le nId de l&#8217;entrée a Supprimer
+:type nId: int</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="imperium.Imperium.getNotificationEntries">
+<tt class="descname">getNotificationEntries</tt><big>(</big><big>)</big><a class="headerlink" href="#imperium.Imperium.getNotificationEntries" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Tout les entrées de notifications</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../index.html"
+                        title="previous chapter">Projet Impérium</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="module_doc.html"
+                        title="next chapter">Documentation | Module</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/pages/imperium_doc.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="module_doc.html" title="Documentation | Module"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../index.html" title="Projet Impérium"
+             >previous</a> |</li>
+        <li><a href="../index.html">Projet Impérium 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Projet Impérium.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.1.
+    </div>
+  </body>
+</html>
