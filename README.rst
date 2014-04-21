@@ -60,5 +60,16 @@ Enfin pour exécuter l'application web,
 
 Pour uttiliser le système de notification, un fichier creds.txt dans le répertoire principal devrait être crée avec les détails gmail.
 
+
+Projet réaliser par,
+
+Emmanuel Thompson
+Dominic Savoie
+Gilles Samson
+Mathieu Doucet
+Mac Gregore Brunis
+
+Projet de conception - GELE3422 - Microprocesseurs
+
 .. end_installation
 
