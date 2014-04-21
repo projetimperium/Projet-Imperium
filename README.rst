@@ -5,11 +5,11 @@ Projet Impérium
 
 .. begin_description
 
-Le projet est composé d’une unité principale de contrôle qui communique avec différents sous module. Son objectif est d’effectuer le traitement de l’information et la collection de l’information provenant des sous-modules. Ce module principal peut se connecter à l’internet pour réaliser le contrôle par téléphone intelligent ou d’autres appareils. Avec cet élément, il est possible d’ajouter d’autres sous module si jamais on décide d’agrandir l’échelle du projet.
+Le projet est composé d’une unité principale de contrôle qui communique avec différents sous-modules. Son objectif est d’effectuer le traitement de l’information et la collection de l’information provenant des sous-modules. Ce module principal peut se connecter à l’internet afin de permettre le contrôle par téléphone intelligent ou d’autres appareils. Avec cet élément, il est possible d’ajouter des sous-modules et de communiquer entre eux.
 
-Le premier sous-module comprend un système intelligent pour déverrouiller la serrure d’une porte. Aujourd’hui, avec cet âge informatique et technologique, la majorité des gens ont des téléphones intelligents et les apportent tout au long de la journée. Leur cellulaire devient leurs identités et pourrait aussi être leurs clés et plusieurs de ces outils ont maintenant la technologie NFC intégrée. En exploitant ces facteurs, on peut créer une serrure intelligente qui pourrait être déverrouillée à distance. Cela permet aux clients de faciliter la tâche lorsqu’ils veulent entrer chez eux. En somme, le module est capable de déverrouiller une porte à distance à l’aide d’un appareil, déverrouiller une porte à l’aide de la technologie RFID ou d’une clé en cas d’urgence.
+Le premier sous-module comprend un système intelligent pour déverrouiller une porte. Aujourd’hui, avec cet âge informatique et technologique, la majorité des gadgets électroniques sont connectés à l’internet. Donc, la connexion internet d’une porte donne à l’utilisateur une plus grande flexibilité à l’accès de sa maison. En exploitant ces facteurs, on peut créer une serrure intelligente qui pourrait être déverrouillée à distance. Cela permet aux clients de faciliter la tâche lorsqu’ils veulent entrer chez eux. En somme, le module est capable de déverrouiller une porte à distance à l’aide d’un appareil, déverrouiller une porte à l’aide de la technologie RFID ou d’une clé en cas d’urgence.
 
-Le deuxième sous-module comprend un système de mesure. Il sera capable de mesurer la puissance de chaque circuit individuel provenant du panneau électrique d’une maison. Il enverra les données à notre unité principale pour effectuer le traitement des données, tel que l’analyse des coûts et de la consommation. De plus, l’unité principale sauvegardera les données pour qu’ils soient accessibles à n’importe quel moment. La demande d’énergie continue d’augmenter et donc ce sous-module devient un projet très important à réaliser pour la gestion d’énergie consommée.
+Le deuxième sous-module comprend un système de mesure d’énergie. Il sera capable de prendre des lecture de puissance de chaque circuit individuel provenant du panneau électrique d’une maison. Toutefois, en raison de plusieurs défis, l’idée à été modifié pour prendre des mesures de puissance d’un appareil brancher aux prises dans un maison. Ensuite, il enverra les données à l’unité principale pour effectuer le traitement des données, tel que l’analyse des coûts et de la consommation. De plus, l’unité principale sauvegardera les données pour qu’ils soient accessibles à n’importe quel moment. La demande d’énergie continue d’augmenter et donc ce sous-module devient un projet très important à réaliser pour la gestion d’énergie consommée.
 
 .. end_description
 
@@ -20,7 +20,8 @@ Le deuxième sous-module comprend un système de mesure. Il sera capable de mesu
 Installation
 ------------
 
-Les fichiers du projet devrons être copier sur un Raspberry-pi.
+Les fichiers du projet devrons être copier sur un Raspberry Pi.
+
 Ce projet dépend sur les librairies suivantes:
 
 Serveur Web:
@@ -57,7 +58,7 @@ Enfin pour exécuter l'application web,
 
    $ python run.py
 
-
+Pour uttiliser le système de notification, un fichier creds.txt dans le répertoire principal devrait être crée avec les détails gmail.
 
 .. end_installation
 
