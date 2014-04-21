@@ -64,9 +64,13 @@ Pour uttiliser le système de notification, un fichier creds.txt dans le répert
 Projet réaliser par,
 
 Emmanuel Thompson
+
 Dominic Savoie
+
 Gilles Samson
+
 Mathieu Doucet
+
 Mac Gregore Brunis
 
 Projet de conception - GELE3422 - Microprocesseurs
