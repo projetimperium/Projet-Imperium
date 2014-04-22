@@ -30,7 +30,7 @@ void setup() {
   Serial.begin(9600);
   xbeeSerial.begin(9600);
   FreqMeasure.begin();
-  LCDSerial.begin(9600);
+
 
   delay(500); // attend pour que la LCD boot
 
@@ -215,6 +215,10 @@ void sendPowerData(float Vrms, float Irms, float power_apparent, float power_act
 }
 
 void LCDWrite(float Vrms, float Irms, float power_apparent, float power_active, float power_factor) {
+
+  xbeeSerial.end();
+  LCDSerial.begin(9600);
+
   LCDClear();
 
   String line1 = "";
@@ -240,6 +244,8 @@ void LCDWrite(float Vrms, float Irms, float power_apparent, float power_active, 
   LCDMoveCursor(1,0);
   LCDSerial.print(line2);
 
+  LCDSerial.end();
+  xbeeSerial.begin(9600);
 
 }
 
